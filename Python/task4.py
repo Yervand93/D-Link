@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 
+import string
 import random
 
 def passw_generate():
 	print("Now I ask you,how do you want,that your password is difficult")
-	length=input("How many characters you want? ")
+	while True
+		try:
+			length=int(input("How many characters you want? "))
+		except:
+			print("Write only integers")
 	num='123456789'
 	low='qwertyuiopasdfghjklzxcvbnm'
 	upp='QWERTYUIOPASDFGHJKLZXCVBNM'
