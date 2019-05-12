@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
 
+import re
 from os import path
 import sys
 import argparse
@@ -27,8 +27,12 @@ def txt_file(a,b):
 		worksheet.write_row(i,0,splitline)
 		worksheet.conditional_format('A1',{'type':'cell','criteria': 'equal to','value': '"N"' ,'format':col_yellow})
 		for j in splitline:
-			if j=="IT":
-				
+			s=" ".join(filter(None,splitline))
+			res=re.findall(r'\d{2}',s)
+			res2=' '.join(map(str,res))
+			if res2=="":
+				continue
+			if int(res2)>=30 and j=='IT':
 				worksheet.set_row(count,cell_format=col_red)
 		count+=1
 	workbook.close()
@@ -42,9 +46,10 @@ def main():
 		txt_file(f,x)
 	else:
 		print("Edpisi fayl chka")
-	#	print("-------- = {}".format(namespace.file_value.name))
 
+try:
+	if __name__=='__main__':
+		main()
+except:
+	print("Please near filename write -h or --help")
 
-
-if __name__=='__main__':
-	main()
