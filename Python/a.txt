@@ -1,7 +1,7 @@
-Name	Last Name	Age	Proffesion
-Yervand	Margaryan	26	IT
-Edgar	Antikyan	33	IT
-Kate	Smith		21	Manager
-John	Smith		45	Driver
-Anna	Hakobyan	39	IT
+N	Name	Last_Name	Age	Proffesion
+1	Yervand	Margaryan	26	IT
+2	Edgar	Antikyan	33	IT
+3	Kate	Smith		21	Manager
+4	John	Smith		45	Driver
+5	Anna	Hakobyan	39	IT
 
