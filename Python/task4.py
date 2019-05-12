@@ -5,18 +5,20 @@ import random
 
 def passw_generate():
 	print("Now I ask you,how do you want,that your password is difficult")
-	while True
-		try:
-			length=int(input("How many characters you want? "))
-		except:
-			print("Write only integers")
-	num='123456789'
-	low='qwertyuiopasdfghjklzxcvbnm'
-	upp='QWERTYUIOPASDFGHJKLZXCVBNM'
-	sym="+-*/~!@#$%^&*""()_=[]{};'<>?,.|"
+	num=string.digits
+	low=string.ascii_lowercase
+	upp=string.ascii_uppercase
+	sym=string.punctuation
 	xar=num+low+upp+sym
 	ls=list(xar)
 	random.shuffle(ls)
-	passw="".join([random.choice(ls) for x in range(int(length))])
-	print(passw)
+	while True:
+		try:
+			length=input("How many characters you want? ")
+			passw="".join([random.choice(ls) for x in range(int(length))])
+			print("Your password is: {}".format(passw))
+			break
+		except:
+			print("Write only integers")
+		
 passw_generate()
