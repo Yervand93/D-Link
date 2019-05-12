@@ -4,6 +4,7 @@
 from os import path
 import sys
 import argparse
+import xlsxwriter
 
 def createParser():
 	parser=argparse.ArgumentParser()
@@ -15,10 +16,23 @@ def txt_file(a,b):
 	r=open(a,"r")
 	w=open(b,"w")
 	if b[-4:]=="xlsx":	
-		s=w.write(r.read())
+		writing=w.write(r.read())
+		r.close()
+		#work=openpyxl.load_workbook(b)
+		#all_name=theFile.sheetnames
+		#print(all_name)
 		print("Your -xlsx- file is done")
 	else:
-		print("The file what you are  wrie is not -xlsx- file")
+		print("The file what you are write is not -xlsx- file")
+	x=xlsxwriter.Workbook(b)
+		
+
+
+#def xlsx_work(work):
+	#w=xlswriter.Workbook(work)
+	
+
+
 
 
 def main():
@@ -31,7 +45,6 @@ def main():
 	else:
 		print("Edpisi fayl chka")
 #	print("-------- = {}".format(namespace.file_value.name))
-
 
 
 
