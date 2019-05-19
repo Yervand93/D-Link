@@ -19,7 +19,7 @@ while pat1 != patasxan or pat_lriv != patasxan:
 		print("Duq haxtel eq mer xax@!!!")
 		break
 	otvet=input("Ete giteq bar@ uzum eq lriv grel? y/n ")
-	if otvet=="y":
+	if otvet.upper()=="Y":
 		pat_lriv=input("Greq barn amboxjutyamb: ")
 		if pat_lriv==patasxan:
 			print("Duq haxtel eq mer xax@!!!")
