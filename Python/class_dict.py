@@ -12,16 +12,18 @@ class Dict:
 	def __init__(self,name=None,surname=None):
 		self.name=name
 		self.surname=surname
-		#pass
-	
+		
 	def __str__(self):
 		return "This Class for dictionary"
 
 c=Dict()
-c.ordered['name']='Yervand','Anna'
-c.ordered['surname']='Hakobyan','Mkrtchyan'
-c.ordered["Age"]="25","30"
-c.ordered['']='Harutyunyan'
+
+user_input=input("Write name,surname,age and proffesion seperated by commas (,): ")
+name,surname,age,proff=user_input.split(",")
+c.ordered['name']='Yervand','Anna',name
+c.ordered['surname']='Hakobyan','Mkrtchyan',surname
+c.ordered["age"]="25","30",age
+c.ordered['proffesion']='IT',proff
 print(dict(Dict.ordered))
 print(Dict.ordered.keys())
 
