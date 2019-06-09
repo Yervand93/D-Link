@@ -17,6 +17,7 @@ void registrate()
 	cin >> name;
 	cout << "Write your new password: " << endl;
 	cin >> password;
+	cout << "You registered in our site,Thank you!" << endl;
 	dict[name]=password;
 	show_dict();
 
@@ -55,16 +56,20 @@ int main()
 	cin >> name;
 	cout << "Please write your password: ";
 	cin >> password;
-	if (name==dict[name])
+	for (auto item : dict)
 	{
-		cout << name << ": user is correct" << endl;
+		if (name==item.first && password==item.second)
+		{
+			cout << name << ": user is correct" << endl;
+			break;
+		}
+		else
+		{
+			cout << "This user is not recognized.\nDo you want registrate? y/n ";
+			cin >> answer;
+			switch_case(&answer);
+			break;
+		}
 	}
-	else
-	{
-		cout << "This user is not recognized.\nDo you want registrate? y/n ";
-		cin >> answer;
-		switch_case(&answer);
-	}
-	
 	return 0;
 }
