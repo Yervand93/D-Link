@@ -37,18 +37,3 @@ int main()
 	return 0;
 }
 
-/*
-double func(double *num1,double *num2, double *num3,double *num4)
-{
-	cout << "Z = ";
-	cin >> Z;
-	cout << "B = ";
-	cin >> B;
-	cout << "A = ";
-	cin >> A;
-	cout << "Betta = ";
-	cin >> Betta;
-}
-*/
-
-

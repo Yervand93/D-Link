@@ -4,7 +4,8 @@ using namespace std;
 
 int main()
 {
-	int num,power,result=1;
+	int num,power;
+	long long* result = new long long(1);
 	cout << "Write number: ";
 	cin >> num;
 	cout << "Enter power: ";
@@ -17,9 +18,11 @@ int main()
 	{
 		for (int i=0; i < power;i++) 
 		{
-		result *=num;
+			*result = *result * num;
+			cout << "Result: " << *result << endl;
 		}
-	cout << "result = " << result << endl;
+	cout << "result = " << *result << endl;
 	}
+	delete result;
 	return 0;
 }
