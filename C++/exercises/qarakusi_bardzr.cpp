@@ -19,7 +19,6 @@ int main()
 		for (int i=0; i < power;i++) 
 		{
 			*result = *result * num;
-			cout << "Result: " << *result << endl;
 		}
 	cout << "result = " << *result << endl;
 	}
