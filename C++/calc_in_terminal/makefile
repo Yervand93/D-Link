@@ -1,25 +1,33 @@
+CC := gcc
 TARGET := main.exe
-SOURCES := $(wildcard ./*.cpp)
+C_FLAGS := -fPIC
+LD_FLAGS := -shared
+SOURCES := $(wildcard ./lib/*.cpp)
 OBJECTS := $(subst .cpp,.o, $(SOURCES))
-STATIC_LIB := libmylib.a
+SHARED_LIB := libmylib.so
 
 all : $(TARGET)
 	@echo "All is done perfectly"
 
-$(TARGET) : $(OBJECTS) $(STATIC_LIB)
+$(TARGET) : $(OBJECTS) $(SHARED_LIB) main.o
 	@echo "linking the " $@
-	@g++ $(OBJECTS) -o $@ -L. -lmylib 
+	@$(CC) -L. -Wl,-rpath=. -Wall -o $@ main.o -lmylib -lstdc++ 
 
-$(STATIC_LIB) : $(OBJECTS)
-	@echo "generating static lib"
-	@ar rsv $@ $(OBJECTS)
+main.o: main.cpp
+	@echo "generating " $@
+	@$(CC) -c main.cpp 
+
+
+$(SHARED_LIB) : $(OBJECTS)
+	@echo "generating shared lib"
+	@$(CC) $(LD_FLAGS) -o $@ $(OBJECTS) 
 
 %.o : %.cpp
 	@echo "generating" $@
-	@g++ -c $< -o $@ 
+	@$(CC) -c -Wall $(C_FLAGS) -o $@ $<
 
 .PHONY: clean
 
 clean: 
 	@echo "remove all .o files"
-	@rm -f $(OBJECTS)
+	@rm -f  $(TARGET) $(OBJECTS) *.o
