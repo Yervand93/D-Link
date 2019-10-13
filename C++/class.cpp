@@ -48,7 +48,7 @@ int main()
 	Human firstHuman;
 	Human secondHuman("Aghasi",26,150);
 	
-	//firstHuman.Set();
+	firstHuman.Set();
 	//secondHuman.Set();
 	
 	firstHuman.Print();	

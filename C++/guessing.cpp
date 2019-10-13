@@ -8,6 +8,7 @@ int main()
 	int max = 100;
 	int min = 1;
 	int answer;
+	cout << "GREAT   9\n" << "LESS   1\n" << "EQUAL   5" << endl;  
 	cout << "Take number in your mind" << endl;
 	bool my_true;
 	while (!my_true)
